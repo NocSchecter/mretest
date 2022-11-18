@@ -3,6 +3,7 @@ import { AlphaMode, Appearance, Material, User } from '@microsoft/mixed-reality-
 
 export default class EnableDisable
 {
+	private text: MRE.Actor = null;
 	private model: MRE.Actor = null;
 	private buttonEnable: MRE.Actor;
 	private buttonDisable: MRE.Actor;
@@ -16,6 +17,24 @@ export default class EnableDisable
 	private async started()
 	{
 		this.assets = new MRE.AssetContainer(this.context);
+
+		this.text = MRE.Actor.Create(this.context,
+			{
+				actor:
+				{
+					name: 'Text',
+					transform: {
+						app: {position: { x: 0, y: 0.65, z: 0}}
+					},
+					text:
+					{
+						contents: "Activa/Desactiva",
+						anchor: MRE.TextAnchorLocation.MiddleCenter,
+						color: {r: 30 / 255, g: 206 / 255, b: 213 / 255},
+						height: 0.3
+					}
+				}
+			})
 
 		const alphaMaterialEnabe = this.assets.createMaterial("alphaMat2",
 		{
@@ -37,12 +56,14 @@ export default class EnableDisable
 			actor :
 			{
 				name: "Donia",
+				parentId: this.text.id,
 				transform:
 				{
 					local:
 					{
 						scale: {x: 100, y: 100, z: 100},
-						position: {x: 1, y: -1, z: 1}
+						position: {x: 1.5, y: -1.2, z: 0},
+						rotation: {x: 0, y: 90, z: 0}
 					}
 				},
 				appearance: 
