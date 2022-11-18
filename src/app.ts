@@ -62,7 +62,7 @@ export default class EnableDisable
 					{
 						local:
 						{
-							position: {x: -1, y: 0, z: 0},
+							position: {x: -0.5, y: 0, z: 0},
 							scale: {x: 1, y: 1, z: 0.1}
 						}
 					},
@@ -88,7 +88,7 @@ export default class EnableDisable
 					{
 						local:
 						{
-							position: {x: 1, y: 0, z: 0},
+							position: {x: 0.5, y: 0, z: 0},
 							scale: {x: 1, y: 1, z: 0.1}
 						}
 					},
